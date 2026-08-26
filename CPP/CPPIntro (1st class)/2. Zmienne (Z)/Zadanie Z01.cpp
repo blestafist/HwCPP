@@ -1,8 +1,6 @@
 #include <iostream>
 using namespace std;
 
-// staram się zrobić kod jak najbardziej czytelny
-
 int main()
 {
     int a, b;  // deklarowanie zmiennych
