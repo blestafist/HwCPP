@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstdint>
 
 long przestaw (long num) {
     int r = num % 100, a = r / 10, b = r % 10;

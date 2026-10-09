@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstddef>
 #include <fstream>
 
 // =========================== CONFIGURATION ===========================
