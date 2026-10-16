@@ -5,21 +5,7 @@
 
 
 const std::string INPUT_FILE = "liczby_do_zadania.txt";
-
-
-void InsertionSort (std::vector<int>& arr) {
-    for (size_t i = 1; i < arr.size(); ++i) {
-        size_t ptr = i;
-        int val = arr[i];
-
-        while (ptr > 0 && arr[ptr - 1] > val) {
-            arr[ptr] = arr[ptr - 1];
-            --ptr;
-        }
-
-        arr[ptr] = val;
-    }
-}
+const std::string OUTPUT_FILE = "zadanie1_sortowanie_selection.txt";
 
 
 void SelectionSort (std::vector<int>& arr) {
@@ -38,20 +24,12 @@ void SelectionSort (std::vector<int>& arr) {
 }
 
 
-void BubbleSort (std::vector<int>& arr) {
-    for (size_t i = 0; i < arr.size(); ++i) {
-        for (size_t j = 0; j < arr.size() - i - 1; ++j) {
-            if (arr[j] > arr[j + 1]) {
-                std::swap(arr[j], arr[j + 1]);
-            }
-        }
-    }
-}
-
 
 int main () {
     std::ifstream inputFile (INPUT_FILE);
     if (!inputFile) { std::cerr << "Error while opening input file!"; return 1; }
+
+    std::ofstream outputFile (OUTPUT_FILE);
 
     int temp;
     std::vector<int> arr;
@@ -60,10 +38,11 @@ int main () {
         arr.push_back(temp);
     }
 
-    InsertionSort(arr);
+    SelectionSort (arr);
 
     for (auto i : arr) {
         std::cout << i << "\n";
+        outputFile << i << "\n";
     }
 
     return 0;
