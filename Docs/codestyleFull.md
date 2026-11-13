@@ -316,8 +316,8 @@ Banner requirements:
 - Make the closing line exactly as long as the opening line.
 - Leave one blank line after the opening banner and before the closing line.
 - The banner is used in Matura tasks and in files with at least two configurable task parameters;
-  repository examples include `Fibonacci.cpp`, `SemiprimeNum.cpp`, and
-  `munchausenNumbers.cpp`.
+  repository examples include `fibonacci.cpp`, `semiprimenum.cpp`, and
+  `munchausennumbers.cpp`.
 - For several input files, use a name such as
   `const std::string INPUT_FILE_NAMES[3] = { ... };`.
 
@@ -542,7 +542,7 @@ if (!inputFile) { std::cerr << "Error while opening input file!"; return 1; }
   exercises omit this check, but new code should include it when output-file creation is
   necessary for correct task behavior.
 - Do not close streams manually; RAII closes them. Call `close()` only when early closure is
-  necessary, as in `Wrapper-Matura.cpp` and the documented `inputFileNew.close()` case.
+  necessary, as in `wrapperMatura.cpp` and the documented `inputFileNew.close()` case.
 
 ### Reading
 
@@ -653,7 +653,7 @@ Comment on:
    `// ! QuickSort for Legacy Arrays (C)`.
 6. Less obvious include purposes in reusable files under `Wrappers/Alghoritms/*`, when useful.
 7. Detailed educational or reference implementations may have line-by-line explanations. For
-   example, `Wrappers/Alghoritms/Sorting/InsertionSort/InsertionSortLegacy.cpp` has detailed
+   example, `Wrappers/Alghoritms/Sorting/InsertionSort/insertionsortlegacy.cpp` has detailed
    Russian comments, while its `Vector` counterpart has none. Preserve that established
    distinction when editing those reference files; it is not the default for new code.
 
@@ -665,7 +665,7 @@ Comment formatting:
   Russian comments when editing educational legacy material that intentionally uses them.
 - Separate an end-of-line comment from code by exactly one space.
 - Temporary commented-out debug code may be useful while working, but remove it before finishing
-  (for example, `// std::cout << "R: " ...` in `Matura2025.cpp`).
+  (for example, `// std::cout << "R: " ...` in `matura2025.cpp`).
 
 Do not comment obvious code, ordinary task-file includes, or merely repeat a function's name.
 
@@ -713,7 +713,7 @@ while (num > 0) {
   `'0' + d`.
 - Put digit counting in a helper such as `NumOfPlaces`, or use a local `countDigits` lambda.
 - Implement powers with a multiplication loop in `IntPower` or `Power`; for repeated powers, a
-  `constexpr` table such as `POWERS_TABLE` in `munchausenNumbers.cpp` is appropriate.
+  `constexpr` table such as `POWERS_TABLE` in `munchausennumbers.cpp` is appropriate.
 - Count digit frequencies with `int digitsCount[10] {};` and expressions such as
   `digitsCount[cp % 10]++`.
 - When comparing digits in reverse order, move the position with `--pos`.
@@ -820,11 +820,11 @@ portion when the algorithm naturally does so, and use `size_t` indices.
 
 ### 14.10. Matura task organization
 
-- Put each subtask in a separate file (`Task3_1.cpp`, `Task3_2.cpp`, or `1.cpp`, `2.cpp`, `3.cpp`),
+- Put each subtask in a separate file (`task31.cpp`, `task32.cpp`, or `1.cpp`, `2.cpp`, `3.cpp`),
   or use separate functions in one `main.cpp` when that better fits the assignment.
 - Keep sample data files beside the solution, named like `..._przyklad.txt` for testing, along
   with the actual input file.
-- Existing starter templates are `Wrapper-Matura.cpp` and `Minimal-Wrapper-Matura.cpp`.
+- Existing starter templates are `wrapperMatura.cpp` and `Minimal-wrapperMatura.cpp`.
 
 ---
 
@@ -842,7 +842,7 @@ portion when the algorithm naturally does so, and use `size_t` indices.
   `std::unordered_set` for speed.
 - For simple examples, `rand() % N` with `srand(time(NULL))` is present. For more serious random
   number generation, use `<random>`, `std::random_device`, and `std::mt19937`.
-- The comment in `Substr.cpp` captures the preferred approach:
+- The comment in `substr.cpp` captures the preferred approach:
   “Just use `std::string.substr(pos, len)`, in case you can't:”.
 
 ---
@@ -853,13 +853,13 @@ portion when the algorithm naturally does so, and use `size_t` indices.
 
 | File type | Format | Examples |
 |---|---|---|
-| Algorithm | `PascalCase.cpp` | `BinarySearch.cpp`, `RomanToInt.cpp`, `Erastofenes.cpp` |
-| Algorithm name containing spaces or symbols | Existing names may retain them | `gcd + lcd.cpp` |
-| Lesson task | `TaskN.cpp` or `Task1-bubble.cpp` (hyphen suffix in lowercase) | |
-| Subtask | `TaskN_M.cpp` | `Task3_2.cpp` |
+| Algorithm | `PascalCase.cpp` | `BinarySearch.cpp`, `romantoint.cpp`, `erastofenes.cpp` |
+| Algorithm name containing spaces or symbols | Existing names may retain them | `gcdLcd.cpp` |
+| Lesson task | `TaskN.cpp` or `task1Bubble.cpp` (hyphen suffix in lowercase) | |
+| Subtask | `TaskN_M.cpp` | `task32.cpp` |
 | Matura | `main.cpp` inside `MaturaYYYY/`, `ZadanieA.cpp`, or `TaskA.cpp` | |
-| Older school task | Existing names may be `Zadanie P14.cpp` or `ZadanieTJ03.cpp` | legacy |
-| Algorithm variants | PascalCase suffix | `InsertionSortLegacy.cpp`, `InsertionSortVector.cpp`, `QuickSortRandomPivot.cpp`, `ZadanieDOptimised.cpp`, `ContainsSubstring.cpp` |
+| Older school task | Existing names may be `zadanieP14.cpp` or `ZadanieTJ03.cpp` | legacy |
+| Algorithm variants | PascalCase suffix | `insertionsortlegacy.cpp`, `insertionsortvector.cpp`, `quicksortrandompivot.cpp`, `zadaniedoptimised.cpp`, `containssubstring.cpp` |
 
 ### Directory structure
 
@@ -881,7 +881,7 @@ CPP/
 
 - Name a lesson-date directory `16.10.2026`, `21.10.2026`, and so on.
 - Keep task input and output files beside the source when appropriate (`input.txt`,
-  `liczby_do_zadania.txt`, `wyniki3.txt`).
+  `liczbyDoZadania.txt`, `wyniki3.txt`).
 - Name `.txt` output files according to the assignment (`wyniki4.txt`, `zadanie2.txt`,
   `wynik5.txt`).
 - Do not commit binaries such as `*.bin` or `output.bin`. They are listed in `.gitignore`,
@@ -943,7 +943,7 @@ Examples from the repository that are useful warnings:
   `left = mid + 1;`, and documents the underflow concern.
 - `Tasks.cpp::Factorial` actually computes the sum `num + Factorial(num - 1)`, not a factorial
   product.
-- `Matura2025.cpp::przestawI` is an unfinished iterative implementation with an infinite
+- `matura2025.cpp::przestawI` is an unfinished iterative implementation with an infinite
   `while` loop.
 - `Task3.cpp` (21.10) declares unused `max` and `maxSum`; `Task2.cpp` declares an unused `ctr`.
   Remove unused variables.

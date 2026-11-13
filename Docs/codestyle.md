@@ -17,7 +17,7 @@
   `Short`, `Optimised`, or `Minimal` (`InsertionSortVector`).
 - **Lambdas:** Use `PascalCase` or a short descriptive lowercase name (`Print`).
 - **Files:** Algorithm files use `PascalCase.cpp`; task files use `TaskN.cpp` or `TaskN_M.cpp`.
-  Variant suffixes follow the same style (`InsertionSortVector.cpp`)
+  Variant suffixes follow the same style (`insertionsortvector.cpp`)
 - Write new identifiers in English and spell them correctly. Use a verb or predicate for function
   names. Preserve established names—including legacy misspellings—when extending existing files
   or paths; do not rename them just to fix spelling. Keep existing naming when editing legacy code
