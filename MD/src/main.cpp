@@ -2,5 +2,5 @@
 #include "renderer.h"
 
 int main() {
-    PrintHeader("###### Nigger");
+    PrintHeader("######");
 }
