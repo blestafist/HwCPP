@@ -1,35 +1,33 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
 // ================================ CONFIGURATION ===================================
 
-const std::string INPUT_FILE = ""; // input file name here
-const std::string OUTPUT_FILE = ""; // output file name here
+const std::string INPUT_FILE = "input.txt"; 
+const std::string OUTPUT_FILE = "output.txt"; 
 
 // =================================================================================
 
+
 int main() {
 	std::ifstream inputFile (INPUT_FILE);
-	if (!inputFile) { std::cerr << "Error while opening input file!"; return -1; }
+	if (!inputFile) { std::cerr << "Error while opening input file!"; return 1; }
 
-	std::ofstream outputFile;
+	std::ofstream outputFile (OUTPUT_FILE);
+	if (!outputFile) { std::cerr << "Error while opening output file!"; return 1; }
 
-	std::string tempWord; // string / int (change on need)	
-	// int tempNum;
+	auto Print = [&] (auto&&... argc) {
+        (std::cout << ... << argc) << "\n";
+        (outputFile << ... << argc) << "\n";
+    };
 
-	while (inputFile >> tempWord) {
+	std::string tempStr;
+	// int tempInt
 
-		// here place the conditions for nums / strs checking	
+	while (inputFile >> tempStr) {
+	    
 	}
-
-	inputFile.close();
-	
-	outputFile.open(OUTPUT_FILE);
-	if (!outputFile) { std::cerr << "Error while opening output file!"; return -1; }
-
-	// write answers
-	
-	outputFile.close();
 
 	return 0;
 }
