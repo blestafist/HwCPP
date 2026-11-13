@@ -6,6 +6,9 @@
 #include <vector>
 
 
+const std::string INPUT_FILE = "Input/dane3.txt";
+
+
 std::vector<std::string> DelimString (const std::string& str) {
     std::string buffer = "";
     bool typeIsString = false;
@@ -35,11 +38,13 @@ std::vector<std::string> DelimString (const std::string& str) {
 
 
 int main () {
-    std::ifstream inputFile ("dane3.txt");
+    std::ifstream inputFile (INPUT_FILE);
+    
     std::string input;
     std::getline(inputFile, input);
 
     std::vector<std::string> res = DelimString(input);
+    
     for (const auto& e : res) {
         std::cout << e << "\n";
     }

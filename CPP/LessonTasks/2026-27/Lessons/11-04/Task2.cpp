@@ -7,6 +7,8 @@
 #include <vector>
 
 
+const std::string INPUT_FILE = "Input/dane2.txt";
+
 static constexpr uint_fast8_t ROWS = 10;
 static constexpr uint_fast8_t COLS = 10;
 
@@ -69,7 +71,7 @@ bool MoveToOne (char (&arr)[ROWS][COLS], Pos& pPos) {
 
 
 int main () {
-    std::ifstream inputFile ("dane2.txt");
+    std::ifstream inputFile (INPUT_FILE);
     if (!inputFile) { std::cerr << "Error while opening input file!"; return 1; }
 
     srand(time(NULL));

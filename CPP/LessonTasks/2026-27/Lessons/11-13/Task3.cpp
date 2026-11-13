@@ -14,6 +14,7 @@ std::vector<unsigned long long> Dividers (unsigned long long num) {
     return result;
 }
 
+
 unsigned long long SumArr (const std::vector<unsigned long long>& arr) {
     unsigned long long result = 0;
     for (auto i : arr) {
@@ -22,6 +23,7 @@ unsigned long long SumArr (const std::vector<unsigned long long>& arr) {
 
     return result;
 }
+
 
 int main () {
     unsigned long long num;

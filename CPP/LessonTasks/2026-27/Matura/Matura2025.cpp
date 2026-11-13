@@ -20,7 +20,8 @@ long przestaw (long num) {
     return result;
 }
 
-unsigned long przestawI (unsigned long num) {
+
+unsigned long przestawIt (unsigned long num) {
     unsigned long result = 0;
     int shift = 1;
     
@@ -43,6 +44,7 @@ unsigned long przestawI (unsigned long num) {
 
     return result;
 }
+
 
 int main () {
     std::cout << przestaw(1234) << "\n";

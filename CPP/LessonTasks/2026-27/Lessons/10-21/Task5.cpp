@@ -5,7 +5,8 @@
 #include <unordered_map>
 #include <vector>
 
-const std::string INPUT_FILE = "input.txt";
+
+const std::string INPUT_FILE = "Input/input.txt";
 
 
 unsigned int MultiplyASCIICode (const std::string& str) {

@@ -2,6 +2,7 @@
 #include <cstddef>
 #include <vector>
 
+
 std::vector<int> DivideNumInPieces (int num) {
     std::vector<int> result;
     

@@ -3,8 +3,8 @@
 #include <string>
 
 
-const std::string INPUT_FILE = "zadanie1_sortowanie_insertion.txt";
-const std::string OUTPUT_FILE = "zadanie2.txt";
+const std::string INPUT_FILE = "Output/zadanie1_sortowanie_insertion.txt";
+const std::string OUTPUT_FILE = "Output/zadanie2.txt";
 
 
 template<size_t len>

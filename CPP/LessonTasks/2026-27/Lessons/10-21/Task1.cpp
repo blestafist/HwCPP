@@ -1,7 +1,8 @@
 #include <iostream>
 #include <fstream>
 
-const std::string INPUT_FILE = "input.txt";
+
+const std::string INPUT_FILE = "Input/input.txt";
 
 
 bool IsPalindrome (const std::string& str) {

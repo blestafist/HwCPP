@@ -4,7 +4,8 @@
 #include <numeric>
 #include <vector>
 
-const std::string INPUT_FILE = "input.txt";
+
+const std::string INPUT_FILE = "Input/input.txt";
 
 
 unsigned int SumASCIICode (const std::string& str) {

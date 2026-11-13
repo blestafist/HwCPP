@@ -1,7 +1,7 @@
 #include <iostream>
 #include <utility>
 
-void BubbleSort (int (&arr)[5]) {
+void BubbleSort (int (&arr)[5]) {       // O (n ^ 2)
     for (size_t i = 0; i < 4; ++i) {
         for (size_t j = 0; j < 4 - i; ++j) {
             if (arr[j] > arr[j + 1]) {

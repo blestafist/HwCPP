@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 
+
 class Book {
     public: 
         Book ();
@@ -17,11 +18,13 @@ class Book {
         }
 };
 
+
 Book::Book () {
     numPages = 2;
     page1Contents = "cześć";
     page2Contents = "meow";
 }
+
 
 Book::Book (size_t npg, std::string p1c, std::string p2c) {
     numPages = npg;
@@ -35,6 +38,7 @@ void Book::PrintBook () {
     std::cout << "Zawartość strony 1: " << page1Contents << "\n";
     std::cout << "Zawartość strony 2: " << page2Contents << "\n";
 }
+
 
 int main () {
     Book book;

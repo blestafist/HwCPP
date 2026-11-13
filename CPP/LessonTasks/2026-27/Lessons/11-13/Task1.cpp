@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+
 static constexpr char vals [] = {
     '0', '1', '2', '3', '4', '5', '6', '7', '8',
     '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'
@@ -17,6 +18,7 @@ std::string convertToSystem (int decimal, int base) {
 
     return result;
 }
+
 
 int main () {
     std::vector<int> nums = { 17, 89, 109, 994, 8706 };

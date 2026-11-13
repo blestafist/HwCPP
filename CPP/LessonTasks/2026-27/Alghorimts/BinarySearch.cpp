@@ -4,7 +4,9 @@
 #include <ctime>
 #include <algorithm>
 
+
 static constexpr size_t npos = -1;
+
 
 size_t BinarySearch (int (&arr)[20], int target) {
     size_t mid, left = 0, right = 20 - 1;
@@ -19,6 +21,7 @@ size_t BinarySearch (int (&arr)[20], int target) {
 
     return npos;
 }
+
 
 int main () {
     int arr[20] = {};

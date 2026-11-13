@@ -1,6 +1,7 @@
 #include <cstddef>
 #include <iostream>
 
+
 template <size_t len>
 void GenerateAll (bool (&arr)[len]) {
     arr[0] = false; arr[1] = false;
@@ -9,6 +10,7 @@ void GenerateAll (bool (&arr)[len]) {
         arr[i] = true;
     }
 }
+
 
 template <size_t len>
 void Erastofenes (bool (&arr)[len]) {
@@ -21,12 +23,14 @@ void Erastofenes (bool (&arr)[len]) {
     }
 }
 
+
 template<size_t len>
 void PrintErastofenes (bool (&arr)[len]) {
     for (size_t i = 2; i < len; ++i) {
         if (arr[i]) { std::cout << i << '\n'; }
     }
 }
+
 
 int main () {
     bool arr[7001];

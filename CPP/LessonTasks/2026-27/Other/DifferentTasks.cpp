@@ -16,6 +16,7 @@ void SelectionSort (T (&arr)[len]) {
     }
 }
 
+
 template<typename T, size_t len>
 void InsertionSort (T (&arr)[len]) {
     for (size_t i = 1; i < len; ++i) {
@@ -31,6 +32,7 @@ void InsertionSort (T (&arr)[len]) {
     }
 }
 
+
 void Recurr (int (&arr)[], int size, int curr) {
     if (curr == size) {
         return;
@@ -41,6 +43,7 @@ void Recurr (int (&arr)[], int size, int curr) {
     Recurr(arr, size, curr + 1);
 }
 
+
 int Factorial (int num) {
     if (num <= 0) {
         return 0;
@@ -48,6 +51,7 @@ int Factorial (int num) {
 
     return num + Factorial(num - 1);
 }
+
 
 void FibonnaciPrint (int firstNum, int secondNum) {
     if (secondNum >= 100) {
@@ -58,6 +62,7 @@ void FibonnaciPrint (int firstNum, int secondNum) {
     int sum = firstNum + secondNum;
     FibonnaciPrint(secondNum, sum);
 }
+
 
 void Silnia (int num, int& wynik) {
     if (num > 0) {

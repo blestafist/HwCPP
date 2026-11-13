@@ -4,8 +4,8 @@
 #include <utility>
 
 
-const std::string INPUT_FILE = "liczby_do_zadania.txt";
-const std::string OUTPUT_FILE = "zadanie1_sortowanie_selection.txt";
+const std::string INPUT_FILE = "Input/liczby_do_zadania.txt";
+const std::string OUTPUT_FILE = "Output/zadanie1_sortowanie_selection.txt";
 
 
 void SelectionSort (std::vector<int>& arr) {

@@ -1,10 +1,10 @@
 #include <iostream>
 
-int gcd (int a, int b) {
-    return b == 0 ? a : gcd (b, a % b);
+int GCD (int a, int b) {
+    return b == 0 ? a : GCD (b, a % b);
 }
 
-int gcd_it (int a, int b) {
+int GCDIt (int a, int b) {
     while (b > 0) {
         int tmp = b;
         b = a % b;
@@ -14,10 +14,10 @@ int gcd_it (int a, int b) {
     return a;
 }
 
-int lcd (int a, int b) {
-    return (a / gcd (a, b)) * b;
+int LCD (int a, int b) {
+    return (a / GCD (a, b)) * b;
 }
 
 int main () {
-    std::cout << lcd (12, 18);
+    std::cout << GCD (12, 18);
 }
