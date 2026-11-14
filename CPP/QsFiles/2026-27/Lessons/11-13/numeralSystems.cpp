@@ -4,27 +4,13 @@
 #include <string>
 
 
-char DigitToChar(int digit) {
-    switch(digit) {
-        case 10: return 'A';
-        case 11: return 'B';
-        case 12: return 'C';
-        case 13: return 'D';
-        case 14: return 'E';
-        case 15: return 'F';
-        case 16: return 'G';
-        case 17: return 'H';
-        default: return static_cast<char>(digit + '0');
-    }
-}
-
-
 std::string DecToBase(int decimal, int base) {
     if (decimal == 0) { return "0"; }
+    static constexpr char digits[] = "0123456789ABCDEFGH";
 
     std::string output;
     while (decimal > 0) {
-        char curr = DigitToChar(decimal % base);
+        char curr = digits[decimal % base];
         output += curr;
 
         decimal /= base;
