@@ -1,41 +1,36 @@
 #include <iostream>
-#include <cstddef>
+#include <string>
+#include <algorithm>
 #include <vector>
 
 
-std::vector<int> DivideNumInPieces (int num) {
-    std::vector<int> result;
-    
-    while (num > 1) {
-        bool divided = false;
+static constexpr char vals [] = {
+    '0', '1', '2', '3', '4', '5', '6', '7', '8',
+    '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'
+};
 
-        for (size_t i = 2; i * i < num; ++i) {
-            if (num % i == 0) {
-                result.push_back(i);
-                divided = true;
-                num /= i;
-            }
-        }
 
-        if (!divided) { result.push_back(num); break; }
+std::string convertToSystem (int decimal, int base) {
+    std::string result = "";
+
+    while (decimal > 0) {
+        result = result + vals[decimal % base];
+        decimal /= base;
     }
 
+    std::reverse(result.begin(), result.end());
     return result;
 }
 
 
 int main () {
-    int num;
+    std::vector<int> nums = { 17, 89, 109, 994, 8706 };
+    std::vector<int> bases = { 5, 7, 11, 14 };
 
-    std::cout << "Enter the first num: ";
-    std::cin >> num;
-
-    std::cout << "\n\nResult: \n";
-
-    std::vector<int> res = DivideNumInPieces(num);
-
-    for (auto i : res) {
-        std::cout << i << " ";
+    for (auto num : nums) {
+        for (auto base : bases) {
+            std::cout << num << " in " << base << ": " << convertToSystem(num, base) << "\n";
+        }
     }
 
     return 0;
