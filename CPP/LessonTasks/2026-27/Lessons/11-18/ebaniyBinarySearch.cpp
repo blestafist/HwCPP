@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <vector>
 
 std::vector<int> T = { 3, 4, 6, 8, 9 };
