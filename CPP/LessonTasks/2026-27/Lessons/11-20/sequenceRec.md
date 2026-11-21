@@ -12,7 +12,8 @@ f (i)
 
 ---
 
-Tabela 1 (1.1)
+1.1
+
 2 → 1
 3 → 1
 4 → 3
@@ -24,7 +25,8 @@ Tabela 1 (1.1)
 
 ---
 
-Tabela 2 (1.2)
+1.2
+
 0 → 1
 3 → 1
 5 → 2
@@ -35,3 +37,21 @@ Tabela 2 (1.2)
 E (<3) → 1
 E (i) → parzyste → E (i - 3) + E (i - 1)
 E (i) → nieparzyste → E (i - 1)
+
+---
+
+1.3
+
+W[0] <- 1
+W[1] <- 1
+W[2] <- 1
+max_wart <- 1
+dla i = 3, 4 ..., 1000 wykonuj
+    jezeli i mod 2 = 0
+        W[i] <- W[i-3] + W[i-1] + 1
+    w przeciwnym razie
+        W[i] <- W[i - 1] mod 7
+    jezeli W[i] > max_wart
+        max_wart <- W[i]
+zwroc max_wart
+
