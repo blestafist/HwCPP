@@ -253,27 +253,11 @@ Examples:
 #include <vector>
 ```
 
-The repository historically did not have a single include order: only 16 of 104 files with at
-least three headers were alphabetized, and ordering varied between examples. The sequence above
-is the unified rule for new code.
-
 Additional rules:
 
-- Use angle brackets for standard headers. A quoted standard header such as `"cstddef"` in
-  `Tasks.cpp` is an old mistake.
+- Use angle brackets for standard headers
 - Use C++ header names: `<cstddef>`, `<cstdlib>`, `<ctime>`, `<climits>`, and `<cstdint>`;
-  older school files may still use `<time.h>`, `<limits.h>`, or `<stdint.h>`.
-- Prefer `<cstddef>` when `size_t` is needed. Existing wrapper comments sometimes say
-  `// for size_t` beside `<cstdlib>`; treat that as a legacy annotation, not the include rule.
-- Wrapper files under `Wrappers/Alghoritms/*` may explain a less obvious include at the end of
-  the line. Keep such comments aligned when adjacent lines need alignment:
-
-  ```cpp
-  #include <optional> // for optional values return
-  #include <cstdlib>  // legacy comment: for size_t
-  ```
-
-  Do not add explanatory include comments to ordinary task files.
+- Prefer `<cstddef>` when `size_t` is needed.
 
 ---
 
@@ -282,28 +266,15 @@ Additional rules:
 Put file names and task parameters in a constants block immediately after the include block.
 Use one rule for the block format:
 
-- Use the `CONFIGURATION` banner for exam/Matura solutions or whenever there are at least two
-  configurable task parameters in addition to the ordinary input/output file names.
-- For a small standalone example with fewer than two configurable task parameters and no
-  exam-template requirement, put the constants directly after the includes without a banner. A
-  pair of input and output file names alone does not require a banner.
-- Keep all file names, size limits, and task boundaries in this block. For a list of files, use
-  an array such as `INPUT_FILE_NAMES`.
-
-Small configuration block:
-
-```cpp
-const std::string INPUT_FILE = "input.txt";
-const std::string OUTPUT_FILE = "zadanie2.txt";
-```
+- Use the `CONFIGURATION` banner for constants
 
 Banner block:
 
 ```cpp
 // =========================== CONFIGURATION ===========================
 
-const std::string INPUT_FILE_NAME = "korpo_przyklad.txt";
-const std::string OUTPUT_FILE_NAME = "wyniki4.txt";
+const std::string INPUT_FILE_NAME = "input.txt";
+const std::string OUTPUT_FILE_NAME = "output.txt";
 const int MIN = 100;
 const int MAX = 1000;
 
@@ -315,9 +286,6 @@ Banner requirements:
 - Write `CONFIGURATION` in uppercase and surround it with `=` characters.
 - Make the closing line exactly as long as the opening line.
 - Leave one blank line after the opening banner and before the closing line.
-- The banner is used in Matura tasks and in files with at least two configurable task parameters;
-  repository examples include `fibonacci.cpp`, `semiprimenum.cpp`, and
-  `munchausennumbers.cpp`.
 - For several input files, use a name such as
   `const std::string INPUT_FILE_NAMES[3] = { ... };`.
 
@@ -327,8 +295,6 @@ Constant naming and storage:
 - File-scope `const std::string`, `constexpr`, and `static constexpr` values are acceptable.
 - Keep the standard-library-style lowercase spelling for the sentinel `npos`:
   `static constexpr size_t npos = -1;`.
-- A one-off algorithm may use a direct numeric bound such as `1000001` rather than introducing
-  a constant solely to name it.
 
 ---
 
@@ -342,7 +308,6 @@ Constant naming and storage:
 | Predicates | Start with `Is`, `Has`, `Does`, or `Are` | `IsPrime`, `IsKaprekar`, `Has2PrimeDividers`, `DoesHave6Ones`, `AreZeroesMajority` |
 | Counting/summing functions | Start with `Sum`, `Count`, or `Num` | `SumOfNeighbors`, `CountSwaps`, `NumOfPlaces` |
 | Algorithm wrappers | Public name is the algorithm; recursive helper ends in `Rec` | `QuickSort` → `QuickSortRec` → `PartitionQuickSort` |
-| Standard-style algorithms | Lowercase or snake_case, by analogy with standard-library naming | `gcd`, `lcd`, `gcd_it`, `to_bin`, `przestaw` |
 | Lambdas | PascalCase or short lowercase | `Print`, `rev`, `countDigits` |
 | Variables | **camelCase** | `inputFile`, `tempWord`, `maxWord`, `minValueIndex`, `bossForNobody` |
 | Constants | `UPPER_SNAKE_CASE` | `INPUT_FILE`, `MIN` |
@@ -351,36 +316,28 @@ Constant naming and storage:
 
 ### Common short names
 
-- Indices: `i`, `j` for a nested index, `x` and `y` for matrices or a field, `nx` and `ny` for
-  neighboring coordinates.
+- Indices: `i`, `j` for a nested index, `x` and `y` for matrices or a field
 - Counters: `ctr` is most common in recent code; `counter`, `cnt`, or a descriptive `...Counter`
   are also used. Increment with `++ctr`.
 - Results: `result` in functions, `res` for a short local name, `sum` for sums.
-- Input temporaries: `tempWord`, `tempNum`, `tempStr`, `tempChar`, `temp`, `word`, `word1`,
-  `word2`.
-- Arrays: `arr`, `mainArr`, `helperArr`. Maps: `mp`, `domMap`, `frequency`, `words`.
-- Numbers and strings: `num`, `str`, `str1`, `str2`; use `c` for a `char` when the meaning is
-  clear.
-- Moving/search indices: `fastPtr`, `ptr`, `searcher`, `shift` (start offset of a window),
+- Input temporaries: `tempWord`, `tempNum`, `tempStr`
+- Arrays: `arr`, `mainArr`, `helperArr`. Maps: `frequency`, `words`.
+- Numbers and strings: `num`, `str`, `str1`, `str2`; use `c` for a `char` (in for c : str)
+- Moving/search indices: `fastPtr`, `ptr`, `shift` (start offset of a window),
   `fence` (the Quick Sort “fence”), `mid`, `left`, `right`, `first`, `last`, `piv`.
 - Best index/value: `minIdx`, `minValueIndex`, `bestIndex`, `maxSum`, `max`, `min`.
-- A value saved while shifting: `temp`, `savedValue`, `val`.
+- A value saved while shifting: `savedValue`, `val`.
 - Streams: `inputFile` and `outputFile`; for multiple streams use descriptive names such as
   `inputFileWords` and `inputFileNew`.
 
 ### Further naming rules
 
-- Existing misspellings have become part of established file or symbol names:
-  `Alghoritms`, `Erastofenes`, `Fibonnaci`, `neightboor`, `Task1-insetion`, and `Harshard`.
-  Do not rename them merely to correct spelling when extending their existing file or directory.
-  Spell new names correctly.
 - Name functions with a verb or predicate: `GenerateAll`, `PrintErastofenes`, `ParseFile`,
   `SimulateNextGen`.
-- Distinguish algorithm variants with suffixes (see [Section 16](#16-file-and-directory-organization)):
+- Distinguish algorithm variants with suffixes:
   `Legacy`, `Vector`, `STL`, `Full`, `Short`, `Optimised`, `Minimal`, `IWS`, and `_it`.
-- Give an iterative counterpart of a recursive function the `_it` suffix, as in `gcd_it`.
-- Polish names occur in school assignments (`przestaw`, `Silnia`, `wynik`). Write new
-  identifiers in English.
+- Give an iterative counterpart of a recursive function the `It` suffix, as in `GcdIt`.
+- When you need to rewrite pseudocode, save func and var naming as they come.
 
 ---
 
@@ -388,17 +345,15 @@ Constant naming and storage:
 
 ### Types
 
-- Use `size_t` for indices and sizes, as in the codebase since April 2026. Older code often uses
-  `int` for these values.
+- Use `size_t` for indices and sizes
 - Use `unsigned int` for non-negative sums and character-code totals where appropriate. Convert
   explicitly with `static_cast<unsigned int>(c)`. Do not use C-style casts such as `(int)x`.
-- Use `unsigned long long` for large non-negative values such as powers and factorials; `long`
-  or `unsigned long` has also been used for products of character codes (Task5).
+- Use `unsigned long long` for large non-negative values such as powers and factorials;
 - Initialize minimum values with `UINT_MAX` from `<climits>` or
   `std::numeric_limits<...>::max()`. A maximum may start at `0`, or at `-1` when that value
   represents “not found yet.”
 - Use `bool` for sieve entries and flags such as `swapped` and `match`.
-- Use `auto` in range-based loops and for complex types such as `std::chrono` values and lambdas.
+- Use `auto` in range-based loops and for complex types
   Spell simple types such as `int` and `size_t` explicitly.
 
 ### Loops
@@ -412,14 +367,12 @@ for (auto& [key, value] : map) { ... }                // structured binding
 while (inputFile >> tempWord) { ... }                 // stream input
 ```
 
-- Use prefix increment/decrement: `++i`, `--i`. Postfix `i++` remains in old code and is
-  acceptable for map counters such as `arrays[key]++` when the expression value is unused; use
-  prefix form for ordinary loop and counter increments.
+- Use prefix increment/decrement: `++i`, `--i`.
 - For unsigned values, prefer loop conditions that cannot underflow. Use `shift + 1 < len`
   instead of `shift < len - 1` when `len` may be zero.
 - Use `i * i <= num` for square-root-bounded loops when this is safe for the input range; this
   avoids `<cmath>` for simple prime checks.
-- Use steps such as `i += 2` for odd values and `i += 6` for a `6k ± 1` search.
+- Use steps such as `i += 2` for odd values and `i += 6` for a `6k ± 1` prime search.
 - Declare the loop variable in the `for` statement.
 
 ### Initialization and declarations
@@ -428,7 +381,7 @@ while (inputFile >> tempWord) { ... }                 // stream input
 int arr[20] = {};                    // zero-initialized
 bool helper[X][Y] {};                // zero-initialized
 int sumRows[ROWS] = {};
-std::vector<size_t> cnt (50001, 0);  // vector(size, value)
+std::vector<size_t> vec (1488, 0);  // vector(size, value)
 std::vector<unsigned int> arr = {};
 int ctr = 0, div = 2;                // related values may share a declaration
 unsigned int max = 0, min = UINT_MAX;
@@ -457,7 +410,7 @@ unsigned int SumASCIICode (const std::string& str) {
     ...
 }
 
-long fibonnaci (int n, long firstNum = 0, long secondNum = 1) { // accumulator parameters
+long Fibonnaci (int n, long firstNum = 0, long secondNum = 1) { // accumulator parameters
     ...
 }
 ```
